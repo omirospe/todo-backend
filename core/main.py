@@ -1,18 +1,7 @@
-from typing import Union
-
 from fastapi import FastAPI
+from core.api import protected_router
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-
-    response = {"Hello": "World"}
-    return response
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
+app.include_router(protected_router)
