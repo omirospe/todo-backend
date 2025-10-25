@@ -1,4 +1,4 @@
-from .models import *
+from .todo import TodoModel
 from .session import Base, engine, SessionLocal, get_db
 
 __all__ = [
@@ -8,4 +8,4 @@ __all__ = [
     get_db
 ]
 
-__all__.extend(models.__all__)
+__all__.extend([TodoModel])

@@ -49,7 +49,7 @@ async def update_todo(
     schema: UpdatedTodoSchema = None,
     service: TodoService = Depends(get_todo_service)
 ):
-    dto = TodoAPIMapper.from_create_schema(schema)
+    dto = TodoAPIMapper.from_update_schema(schema)
     dto.id = todo_id
     response = await service.update_todo(dto)
     return response
